@@ -17,6 +17,8 @@ import javax.inject.Singleton
 @InstallIn(ApplicationComponent::class)
 object NetworkModule {
 
+    @Singleton
+    @Provides
     fun provideHttpClient():OkHttpClient{
         return OkHttpClient.Builder()
                 .readTimeout(15,TimeUnit.SECONDS)
@@ -50,4 +52,12 @@ object NetworkModule {
     fun provideApiService(retrofit: Retrofit):FoodRecipesApi{
         return retrofit.create(FoodRecipesApi::class.java)
     }
+    /**
+     to actually provides foodrecipeApi
+     we need to satisfy retrofit dependency
+     to provide retrofit we need to satisfy okHttpClient and gsonConverterFactory Dependency
+     we have created those two function above and they are telling hilt how to create
+     instance of those
+
+     */
 }
