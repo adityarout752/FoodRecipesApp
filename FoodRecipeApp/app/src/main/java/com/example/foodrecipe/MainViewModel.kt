@@ -14,7 +14,7 @@ import com.example.foodrecipe.repo.Repository
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
-//we donot need viewmodel factory to pass repositry,everything will be handled by VIEWMODELINJECT
+//we donot need viewmodel factory to pass repository,everything will be handled by VIEWMODELINJECT
 class MainViewModel @ViewModelInject constructor(
     private val repository: Repository,
     application: Application):AndroidViewModel(application) {
